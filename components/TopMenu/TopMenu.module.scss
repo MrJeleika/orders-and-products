@@ -1,0 +1,12 @@
+.menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 1.25rem 6.25rem;
+  box-shadow: 0px -0.3125rem 1.25rem black;
+  &__title{
+    color: var(--green)
+  }
+  
+}
