@@ -1,6 +1,8 @@
-@import "node_modules/bootstrap/scss/bootstrap";
+
+
 :root {
   --green: #88C048;
+  --green-30: #88C0484D
 }
 
 * {
@@ -14,6 +16,12 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+a{
+  text-decoration: none;
+}
+@import "node_modules/bootstrap/scss/bootstrap";
 $theme-colors: (
     "primary": #88C048,
-);
+)
+
+

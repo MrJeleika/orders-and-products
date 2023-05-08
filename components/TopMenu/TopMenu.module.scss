@@ -5,8 +5,19 @@
   height: 100%;
   padding: 1.25rem 6.25rem;
   box-shadow: 0px -0.3125rem 1.25rem black;
+  position: relative;
+  z-index: 999;
   &__title{
-    color: var(--green)
+    color: var(--green);
+    text-transform: uppercase;  
+    font-size: 1.25rem;
+    margin-left: .625rem;
   }
-  
+  & p{
+    margin-bottom: 0;
+  }
+}
+
+.day{
+  font-weight: bold;
 }
