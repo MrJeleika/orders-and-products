@@ -25,7 +25,7 @@ export const NavigationMenu = () => {
       </div>
       <ul className={s.nav}>
         <li>
-          <Link href={"/"} className={router.pathname == "/" ? s.active : ""}>
+          <Link href={"/orders"} className={router.pathname == "/orders" ? s.active : ""}>
             Приход
           </Link>
         </li>
@@ -34,7 +34,11 @@ export const NavigationMenu = () => {
             Группы
           </Link>
         </li>
-        <li>Продукты</li>
+        <li>
+          <Link href={"/products"} className={router.pathname == "/products" ? s.active : ""}>
+            Продукты
+          </Link>
+        </li>
         <li>Пользователи</li>
         <li>Настройки</li>
       </ul>

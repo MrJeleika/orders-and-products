@@ -1,0 +1,50 @@
+.wrapper{
+  display: flex;
+  align-items: center;
+  min-width: 1200px;
+  & > div{
+    flex: 1 1 0px;
+    overflow: hidden;
+  }
+}
+
+.guarantee{
+  & span{
+    min-width: 20px;
+  }
+  & h1{
+    margin-bottom: 5px;
+  }
+
+}
+.title{
+  min-width: 500px;
+}
+.price{
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.date{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+
+}
+.delete{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  flex: 0 0 30px !important;
+  align-items: center;
+  &:hover{
+    background-color: rgba( #000000,  0.1);
+  }
+}

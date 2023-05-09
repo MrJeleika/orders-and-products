@@ -1,0 +1,35 @@
+@import "styles/colors";
+
+.modal{
+  border-radius: 3px;
+}
+
+.title{
+
+}
+
+.header{
+ position: relative;
+}
+.footer{
+  background-color: $green;
+}
+
+.badge{
+  position: absolute;
+  cursor: pointer;
+  min-height: 40px;
+  min-width: 40px;
+  top: -20px;
+  right: -20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(59, 59, 59, 0.3);
+  & svg{
+    width: 25px;
+    height: 25px;
+  }
+}

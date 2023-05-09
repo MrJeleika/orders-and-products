@@ -1,0 +1,32 @@
+@import "styles/colors";
+
+.toggle{
+  background-color: #fff;
+  color: $primary;
+  width: 200px;
+  text-align: left;
+  padding: .3125rem .625rem;
+  border-radius: 3px;
+  border: 1px solid $secondary;
+  position: relative;
+  height: 34px;
+  font-size: 14px;
+  margin-left: 5px;
+  font-weight: bold;
+  &::after{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.item{
+  width: 200px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.menu{
+  padding: 0;
+}

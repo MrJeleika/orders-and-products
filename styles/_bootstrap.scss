@@ -1,0 +1,8 @@
+@import 'colors';
+@import "node_modules/bootstrap/scss/bootstrap";
+
+$theme-colors: (
+  "primary": #88C048,
+  "text-primary": $primary,
+  "text-secondary": $secondary
+)
