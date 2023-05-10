@@ -1,7 +1,7 @@
 import { CustomDropdown } from "components/Dropdown/Dropdown";
 import { Product } from "components/Product/Product";
 import { SectionTitle } from "components/SectionTitle/SectionTitle";
-import { useEffect, use } from "react";
+import { use, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "redux/app/hooks";
 import { setLang, setProducts } from "redux/slice/appSlice";
 import { IProduct } from "types/types";
@@ -10,15 +10,15 @@ import { wrapper } from "redux/app/store";
 import { useDispatch } from "react-redux";
 import "animate.css";
 
-// export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
-//   // Fetch data from external API
-//   const res = await fetch(`${process.env.API_HOST}/products`);
+const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
+  // Fetch data from external API
+  const res = await fetch(`${process.env.API_HOST}/products`);
 
-//   const data: IProduct[] = await res.json();
-//   // Pass data to the page via props
+  const data: IProduct[] = await res.json();
+  // Pass data to the page via props
 
-//   return { props: { data } };
-// });
+  return { props: { data } };
+});
 
 async function getProducts() {
   const res = await fetch(`${process.env.API_HOST}/products`);
@@ -26,9 +26,9 @@ async function getProducts() {
   return data;
 }
 
-const Products = () => {
+const Products = ({ data }: any) => {
   const { filter, products } = useAppSelector((state) => state.app);
-  const data = use(getProducts());
+  // const data = use(getProducts());
   const dispatch = useAppDispatch();
 
   const { type, specification } = filter;
