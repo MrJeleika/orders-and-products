@@ -32,9 +32,9 @@ async function getProducts() {
   };
 }
 
-const Products = () => {
+const Products = async () => {
   const { filter, products } = useAppSelector((state) => state.app);
-  const { data } = use(getProducts());
+  const { data } = await getProducts();
   const dispatch = useAppDispatch();
 
   const { type, specification } = filter;

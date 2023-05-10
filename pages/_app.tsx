@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import { Layout } from "components/Layout";
 import { useRouter } from "next/router";
 import { Provider } from "react-redux";
+import { CacheProvider } from "@emotion/react";
 
 function App({ Component, ...rest }: AppProps) {
   const { store, props } = wrapper.useWrappedStore(rest);
@@ -14,9 +15,11 @@ function App({ Component, ...rest }: AppProps) {
   if (router.pathname === "/_error") return <Component {...pageProps} />;
   return (
     <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <CacheProvider value={emotionCache}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </CacheProvider>
     </Provider>
   );
 }
