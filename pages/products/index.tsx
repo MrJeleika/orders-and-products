@@ -11,12 +11,6 @@ import { wrapper } from "redux/app/store";
 import { useDispatch } from "react-redux";
 import "animate.css";
 
-async function getProducts() {
-  const res = await fetch(`${process.env.API_HOST}/products`);
-  const data: IProduct[] = await res.json();
-  return data;
-}
-
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
   // Fetch data from external API
   const res = await fetch(`${process.env.API_HOST}/products`);
@@ -24,12 +18,11 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
   const data: IProduct[] = await res.json();
   store.dispatch(setProducts(data));
   // Pass data to the page via props
-  console.log(data);
 
-  return { props: { data } };
+  return { props: {} };
 });
 
-const Products = ({ data }: any) => {
+const Products = () => {
   const { filter, products } = useAppSelector((state) => state.app);
   // const data = use(getProducts());
   const dispatch = useAppDispatch();

@@ -3,7 +3,7 @@ import { products } from './../../pages/api/app';
 import { createSlice, PayloadAction, current } from '@reduxjs/toolkit'
 import { IDeleteOrderProduct, IFilter, IInitialState, ISetFilter, Lang,} from '../../types/store'
 import { IOrder, IProduct } from 'types/types'
-import { HYDRATE } from 'next-redux-wrapper'
+import { HYDRATE} from 'next-redux-wrapper'
 
 const initialState: IInitialState = {
   lang: 'en-gb',
@@ -45,14 +45,13 @@ const appSlice = createSlice({
     },
     
   },
-  extraReducers: {
-    [HYDRATE]: (state, action) => {
-      return {
-        ...state,
-        ...action.payload.products,
-        ...action.payload.orders,
-      };
-    },
+  extraReducers: (builder) => {
+    builder.addCase(HYDRATE as any, (state: IInitialState, action) => {
+      if (action.payload) {
+        state.products = action.payload.app.products;
+        state.orders = action.payload.app.orders;
+      }
+    });
   },
 })
 

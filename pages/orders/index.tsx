@@ -16,22 +16,17 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
   const res = await fetch(`${process.env.API_HOST}/orders`);
   const data: IOrder[] = await res.json();
   // Pass data to the page via props
-
-  return { props: { data } };
+  store.dispatch(setOrders(data));
+  return { props: {} };
 });
 
 interface Props {
   data: IOrder[];
 }
 
-const Orders = ({ data }: Props) => {
+const Orders = () => {
   const { orders } = useAppSelector((state) => state.app);
-  const dispatch = useDispatch();
   const [orderId, setOrderId] = useState<number>(0);
-
-  useEffect(() => {
-    dispatch(setOrders(data));
-  }, [data]);
 
   return (
     <div>
