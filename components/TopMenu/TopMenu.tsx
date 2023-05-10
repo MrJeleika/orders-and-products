@@ -14,7 +14,7 @@ export const TopMenu = () => {
         </div>
         <h1 className={s.menu__title}>Inventory</h1>
       </div>
-      <MenuClock />
+      {/* <MenuClock /> */}
       {/* <SessionCounter /> */}
     </nav>
   );
