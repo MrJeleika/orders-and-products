@@ -10,7 +10,7 @@ import { wrapper } from "redux/app/store";
 import { useDispatch } from "react-redux";
 import "animate.css";
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
+export const getStaticProps = wrapper.getStaticProps((store) => async ({ params }) => {
   // Fetch data from external API
   const res = await fetch(`${process.env.API_HOST}/products`);
 
