@@ -5,7 +5,7 @@ let socket: any;
 export const SessionCounter = () => {
   const [activeSessions, setActiveSessions] = useState(0);
   const socketInitializer = async () => {
-    await fetch(process.env.API_HOST + "/socket");
+    await fetch(`${process.env.API_HOST}/socket`);
     socket = io();
 
     socket.on("connect", () => {
