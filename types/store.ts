@@ -15,6 +15,11 @@ export interface ISetFilter{
 }
 
 
+export interface IDeleteOrderProduct{
+  orderId: number;
+  productId: number;
+}
+
 export interface IInitialState{
   lang: Lang
   orders: IOrder[]

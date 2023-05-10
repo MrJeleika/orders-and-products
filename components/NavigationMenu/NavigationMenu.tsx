@@ -39,8 +39,16 @@ export const NavigationMenu = () => {
             Продукты
           </Link>
         </li>
-        <li>Пользователи</li>
-        <li>Настройки</li>
+        <li>
+          <Link href={"/users"} className={router.pathname == "/users" ? s.active : ""}>
+            Пользователи
+          </Link>
+        </li>
+        <li>
+          <Link href={"/settings"} className={router.pathname == "/settings" ? s.active : ""}>
+            Настройки
+          </Link>
+        </li>
       </ul>
     </Stack>
   );

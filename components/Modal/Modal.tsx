@@ -3,31 +3,33 @@ import Button from "react-bootstrap/Button";
 import { IOrder, IProduct } from "types/types";
 import s from "./Modal.module.scss";
 import Badge from "react-bootstrap/Badge";
-import { X } from "react-bootstrap-icons";
+import { TrashFill, X } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
-import { deleteProduct } from "redux/slice/appSlice";
+import { deleteOrderProduct, deleteProduct } from "redux/slice/appSlice";
 import { useAppSelector } from "redux/app/hooks";
 
-type Items = IProduct | IOrder;
-type Type = "product";
+type Type = "product" | "order";
 
 interface Props {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
-  product: Items;
+  product: IProduct;
+
+  // if type == product you should specify order
+  order?: IOrder;
   type: Type;
 }
 
-export const CustomModal = ({ isOpen, setIsOpen, product, type }: Props) => {
+export const CustomModal = ({ isOpen, setIsOpen, product, type, order }: Props) => {
   const handleClose = () => setIsOpen(false);
-  const handleShow = () => setIsOpen(true);
   const { products } = useAppSelector((state) => state.app);
-  console.log(products);
 
   const dispatch = useDispatch();
 
-  const deleteItem = (item: Items) => {
+  const deleteItem = () => {
     if (type === "product") dispatch(deleteProduct(product.id));
+    if (type === "order")
+      dispatch(deleteOrderProduct({ orderId: order!.id, productId: product.id }));
     handleClose();
   };
 
@@ -39,12 +41,21 @@ export const CustomModal = ({ isOpen, setIsOpen, product, type }: Props) => {
           <X fill="gray" width={20} />
         </Badge>
       </Modal.Header>
-      <Modal.Body className={s.body}>Woohoo, you are reading this text in a modal!</Modal.Body>
+      <Modal.Body className={s.body}>
+        <div className={s.image}>
+          {/*<Image src={product.photo} alt="preview" width={70} height={70} />*/}
+        </div>
+        <div className={s.title}>
+          <h1 className="text-primary">{product.title}</h1>
+          <h3 className="text-secondary">{product.serialNumber}</h3>
+        </div>
+      </Modal.Body>
       <Modal.Footer className={s.footer}>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button variant="error" className={`${s.btn} ${s.btnSecondary}`} onClick={handleClose}>
           отменить
         </Button>
-        <Button variant="primary" onClick={() => deleteItem(product)}>
+        <Button variant="error" className={`${s.btn} ${s.btnPrimary}`} onClick={() => deleteItem()}>
+          <TrashFill color="rgb(255, 90, 90)" />
           удалить
         </Button>
       </Modal.Footer>

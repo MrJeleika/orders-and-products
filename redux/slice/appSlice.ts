@@ -1,8 +1,8 @@
 import { products } from './../../pages/api/app';
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IFilter, IInitialState, ISetFilter, Lang,} from '../../types/store'
-import { IProduct } from 'types/types'
+import { createSlice, PayloadAction, current } from '@reduxjs/toolkit'
+import { IDeleteOrderProduct, IFilter, IInitialState, ISetFilter, Lang,} from '../../types/store'
+import { IOrder, IProduct } from 'types/types'
 import { HYDRATE } from 'next-redux-wrapper'
 
 const initialState: IInitialState = {
@@ -12,7 +12,7 @@ const initialState: IInitialState = {
   filter: {
     specification: '',
     type: ''
-  }
+  },
 }
 
 const appSlice = createSlice({
@@ -30,8 +30,18 @@ const appSlice = createSlice({
     setProducts: (state, action: PayloadAction<IProduct[]>) => {
       state.products = action.payload
     },
+    setOrders: (state, action: PayloadAction<IOrder[]>) => {
+      state.orders = action.payload
+    },
     deleteProduct: (state, action: PayloadAction<number>) => {
       state.products = state.products.filter(p => p.id !== action.payload)
+    },
+    deleteOrderProduct: (state, action: PayloadAction<IDeleteOrderProduct>) => {
+      const {orderId, productId} = action.payload
+      const currentState = current(state)
+      const order = currentState.orders.filter(o => o.id === orderId)[0]
+      const mappedOrder = {...order, products: order.products.filter(o => o.id !== productId)}
+      state.orders = [...currentState.orders.filter(i => i.id !== orderId), mappedOrder]
     },
     
   },
@@ -50,6 +60,8 @@ export const {
   setLang,
   setFilter,
   setProducts,
-  deleteProduct
+  deleteProduct,
+  setOrders,
+  deleteOrderProduct,
 } = appSlice.actions
 export default appSlice.reducer

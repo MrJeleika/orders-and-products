@@ -1,13 +1,14 @@
 import { CustomDropdown } from "components/Dropdown/Dropdown";
 import { Product } from "components/Product/Product";
-import { SectionTitle } from "components/SectionTitle";
+import { SectionTitle } from "components/SectionTitle/SectionTitle";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "redux/app/hooks";
-import { setProducts } from "redux/slice/appSlice";
+import { setLang, setProducts } from "redux/slice/appSlice";
 import { IProduct } from "types/types";
 import s from "./index.module.scss";
 import { wrapper } from "redux/app/store";
 import { useDispatch } from "react-redux";
+import "animate.css";
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
   // Fetch data from external API
@@ -46,7 +47,7 @@ const Products = ({ data }: Props) => {
           <CustomDropdown filterType="specification" />
         </div>
       </div>
-      <div className={s.content}>
+      <div className={`${s.content} animate__animated animate__fadeIn animate__faster`}>
         {products &&
           products
             .filter((item) => (type ? (item.type === type ? item : null) : item))

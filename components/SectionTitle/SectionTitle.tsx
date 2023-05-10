@@ -1,4 +1,5 @@
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import s from "./SectionTitle.module.scss";
 
 interface Props {
   items?: string[];
@@ -9,7 +10,7 @@ export const SectionTitle = ({ items }: Props) => {
     <Breadcrumb>
       {items &&
         items.map((item, i) => (
-          <Breadcrumb.Item className="font-weight-bold h2" active key={i}>
+          <Breadcrumb.Item className={s.title} active key={i}>
             {item}
           </Breadcrumb.Item>
         ))}

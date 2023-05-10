@@ -3,7 +3,7 @@ export interface IOrder{
   title: string;
   date: string;
   description: string;
-  products: () => IProduct[];
+  products: IProduct[];
 }
 
 

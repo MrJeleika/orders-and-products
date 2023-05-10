@@ -64,7 +64,9 @@ export const Product = ({ product }: Props) => {
           <span></span>
         </div>
         <div className={s.date}>
-          <span className="text-secondary">06 / 12</span>
+          <span className="text-secondary">
+            {moment(product.date).format("L").split("/")[1]} / 12
+          </span>
           <h1 className="text-primary">{date.current}</h1>
         </div>
         <div className={s.delete} onClick={() => setIsOpen(true)}>

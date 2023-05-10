@@ -1,4 +1,4 @@
-const orders = [
+export const orders = [
   {
     id: 1,
     title: 'Order 1',
@@ -8,7 +8,7 @@ const orders = [
   },
   {
     id: 2,
-    title: 'Order 2',
+    title: 'Order 2asdadsads',
     date: '2017-06-29 12:09:33',
     description: 'desc',
     get products () { return products }

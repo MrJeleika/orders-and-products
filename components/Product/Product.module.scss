@@ -1,6 +1,7 @@
 .wrapper{
   display: flex;
   align-items: center;
+  padding: 2px;
   min-width: 1200px;
   & > div{
     flex: 1 1 0px;
@@ -35,6 +36,7 @@
   align-items: center;
 
 }
+
 .delete{
   cursor: pointer;
   width: 30px;
