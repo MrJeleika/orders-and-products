@@ -33,7 +33,9 @@ const Products = ({ data }: any) => {
 
   const { type, specification } = filter;
   useEffect(() => {
-    dispatch(setProducts(data));
+    if (data) {
+      dispatch(setProducts(data));
+    }
   }, [data]);
 
   return (
