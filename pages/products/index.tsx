@@ -34,7 +34,7 @@ async function getProducts() {
 
 const Products = () => {
   const { filter, products } = useAppSelector((state) => state.app);
-  const data = use(getProducts());
+  const { data } = use(getProducts());
   const dispatch = useAppDispatch();
 
   const { type, specification } = filter;
