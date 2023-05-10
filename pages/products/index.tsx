@@ -28,9 +28,7 @@ async function getProducts() {
   const res = await fetch(`${process.env.API_HOST}/products`);
   const data: IProduct[] = await res.json();
   return {
-    props: {
-      data,
-    },
+    data,
   };
 }
 
