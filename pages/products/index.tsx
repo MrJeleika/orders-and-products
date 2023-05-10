@@ -1,3 +1,5 @@
+"use client";
+
 import { CustomDropdown } from "components/Dropdown/Dropdown";
 import { Product } from "components/Product/Product";
 import { SectionTitle } from "components/SectionTitle/SectionTitle";
@@ -22,7 +24,7 @@ import "animate.css";
 //   return { props: { data } };
 // });
 
-export async function getProducts() {
+async function getProducts() {
   const res = await fetch(`${process.env.API_HOST}/products`);
   const data: IProduct[] = await res.json();
   return {
@@ -32,9 +34,9 @@ export async function getProducts() {
   };
 }
 
-const Products = ({ data }: any) => {
+const Products = () => {
   const { filter, products } = useAppSelector((state) => state.app);
-  // const data = use(getProducts());
+  const data = use(getProducts());
   const dispatch = useAppDispatch();
 
   const { type, specification } = filter;
