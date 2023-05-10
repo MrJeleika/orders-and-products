@@ -15,7 +15,9 @@ const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params
   const res = await fetch(`${process.env.API_HOST}/products`);
 
   const data: IProduct[] = await res.json();
+  store.dispatch(setProducts(data));
   // Pass data to the page via props
+  console.log(data);
 
   return { props: { data } };
 });
