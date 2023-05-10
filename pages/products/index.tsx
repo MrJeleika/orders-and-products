@@ -13,7 +13,9 @@ import "animate.css";
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
   // Fetch data from external API
   const res = await fetch(`${process.env.API_HOST}/products`);
+
   const data: IProduct[] = await res.json();
+  store.dispatch(setProducts(data));
   // Pass data to the page via props
 
   return { props: { data } };
@@ -28,9 +30,6 @@ const Products = ({ data }: Props) => {
   const dispatch = useDispatch();
 
   const { type, specification } = filter;
-  useEffect(() => {
-    dispatch(setProducts(data));
-  }, [data]);
 
   return (
     <div>
