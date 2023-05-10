@@ -8,23 +8,31 @@ type ExtendedNextApiResponse = NextApiResponse & {
 
 const SocketHandler = (req: NextApiRequest,
   res: ExtendedNextApiResponse) => {
-  if (res.socket.server.io) {
-    console.log('Socket is already running')
-  } else {
-    console.log('Socket is initializing')
-    const io = new Server(res.socket.server)
-    res.socket.server.io = io
-
-    io.on('connection', socket => {
-      socket.on('connect', num => {
-        socket.broadcast.emit('update-count', num)
-      }),
-      socket.on('disconnect', num => {
-        socket.broadcast.emit('update-count', num)
+  try {
+    if (res.socket.server.io) {
+      console.log('Socket is already running')
+    } else {
+      console.log('Socket is initializing')
+      const io = new Server(res.socket.server)
+      res.socket.server.io = io
+  
+      io.on('connection', socket => {
+        console.log('connection established');
+        
+        socket.on('connect', num => {
+          socket.broadcast.emit('update-count', num)
+        }),
+        socket.on('disconnect', num => {
+          socket.broadcast.emit('update-count', num)
+        })
       })
-    })
+    }
+    res.end()
+  } catch (error) {
+    console.log(error);
+    
   }
-  res.end()
+
 }
 
 export default SocketHandler

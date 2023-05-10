@@ -5,11 +5,11 @@ let socket: any;
 export const SessionCounter = () => {
   const [activeSessions, setActiveSessions] = useState(0);
   const socketInitializer = async () => {
-    await fetch(`${process.env.API_HOST}/socket`);
-    socket = io();
+    await fetch(`http://localhost:3000/api/socket`);
+    socket = io("http://localhost:3000/api");
 
     socket.on("connect", () => {
-      socket.emmit("update-count", activeSessions + 1);
+      socket.emit("update-count", activeSessions + 1);
     });
 
     socket.on("update-count", (num: number) => {
