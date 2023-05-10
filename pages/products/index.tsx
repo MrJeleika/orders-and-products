@@ -10,22 +10,26 @@ import { wrapper } from "redux/app/store";
 import { useDispatch } from "react-redux";
 import "animate.css";
 
-export const getStaticProps = wrapper.getStaticProps((store) => async ({ params }) => {
-  // Fetch data from external API
+// export const getStaticProps = wrapper.getStaticProps((store) => async ({ params }) => {
+//   // Fetch data from external API
+//   const res = await fetch(`${process.env.API_HOST}/products`);
+
+//   const data: IProduct[] = await res.json();
+//   store.dispatch(setProducts(data));
+//   // Pass data to the page via props
+//   console.log(data);
+
+//   return { props: { data } };
+// });
+
+export async function getProducts() {
   const res = await fetch(`${process.env.API_HOST}/products`);
-
   const data: IProduct[] = await res.json();
-  store.dispatch(setProducts(data));
-  // Pass data to the page via props
-  console.log(data);
-
-  return { props: { data } };
-});
-
-async function getProducts() {
-  const res = await fetch(`${process.env.API_HOST}/products`);
-  const data: IProduct[] = await res.json();
-  return data;
+  return {
+    props: {
+      data,
+    },
+  };
 }
 
 const Products = ({ data }: any) => {
