@@ -16,7 +16,7 @@ System for control orders and products in shop or in stock
 ```
 $ git clone https://github.com/MrJeleika/web-app-nest.git
 ```
-### Instal dependencies
+### Install dependencies
 yarn
 ```
 $ yarn
