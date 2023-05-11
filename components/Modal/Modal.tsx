@@ -6,7 +6,6 @@ import Badge from "react-bootstrap/Badge";
 import { TrashFill, X } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { deleteOrderProduct, deleteProduct } from "redux/slice/appSlice";
-import { useAppSelector } from "redux/app/hooks";
 import { useTranslation } from "react-i18next";
 
 type Type = "product" | "order";

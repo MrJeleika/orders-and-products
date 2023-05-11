@@ -1,14 +1,11 @@
-"use client";
 import { CustomDropdown } from "components/Dropdown/Dropdown";
 import { Product } from "components/Product/Product";
 import { SectionTitle } from "components/SectionTitle/SectionTitle";
-import { use, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "redux/app/hooks";
-import { setLang, setProducts } from "redux/slice/appSlice";
+import { useAppSelector } from "redux/app/hooks";
+import { setProducts } from "redux/slice/appSlice";
 import { IProduct } from "types/types";
 import s from "./index.module.scss";
 import { wrapper } from "redux/app/store";
-import { useDispatch } from "react-redux";
 import "animate.css";
 import { useTranslation } from "react-i18next";
 

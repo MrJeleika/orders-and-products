@@ -4,7 +4,7 @@ import { Plus } from "react-bootstrap-icons";
 import { wrapper } from "redux/app/store";
 import { IOrder } from "types/types";
 import { setOrders } from "redux/slice/appSlice";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAppSelector } from "redux/app/hooks";
 import { Order } from "components/Order/Order";
 import { FullProducts } from "components/FullProducts/FullProducts";

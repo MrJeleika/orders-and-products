@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { useState } from 'react';
 import { Server } from 'socket.io'
 
 type ExtendedNextApiResponse = NextApiResponse & {

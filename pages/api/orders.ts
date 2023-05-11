@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { IOrder, IProduct } from 'types/types'
+import { IOrder } from 'types/types'
 import {orders} from './app'
 
 export default function handler(

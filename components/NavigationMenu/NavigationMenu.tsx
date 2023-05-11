@@ -6,7 +6,6 @@ import Image from "next/image";
 import Badge from "react-bootstrap/Badge";
 import { GearFill } from "react-bootstrap-icons";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
 
 export const NavigationMenu = () => {
   const router = useRouter();

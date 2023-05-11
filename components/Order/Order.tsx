@@ -1,7 +1,6 @@
-import { IOrder, IProduct } from "types/types";
+import { IOrder } from "types/types";
 import s from "./Order.module.scss";
 import { ListUl } from "react-bootstrap-icons";
-import { formatWordCount } from "utils";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 

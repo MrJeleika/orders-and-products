@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 export const TopMenu = () => {
   const [lang, setLang] = useState<string>("en");
 
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     i18n.changeLanguage(lang);

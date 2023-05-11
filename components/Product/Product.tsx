@@ -1,4 +1,4 @@
-import { IOrder, IProduct } from "types/types";
+import { IProduct } from "types/types";
 import s from "./Product.module.scss";
 import { TrashFill } from "react-bootstrap-icons";
 import moment from "moment";
@@ -51,7 +51,7 @@ export const Product = ({ product }: Props) => {
           </div>
         </div>
         <div className={s.isNew}>
-          <h1 className="text-primary">{product.isNew ? t("net") : t("used")}</h1>
+          <h1 className="text-primary">{product.isNew ? t("new") : t("used")}</h1>
         </div>
         <div className={s.price}>
           {product.price.map((price, i) => (

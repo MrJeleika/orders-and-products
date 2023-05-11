@@ -1,7 +1,7 @@
 import s from "./FullProducts.module.scss";
 import { FullProduct } from "./FullProduct/FullProduct";
 import Badge from "react-bootstrap/Badge";
-import { Badge3d, Plus, X } from "react-bootstrap-icons";
+import { Plus, X } from "react-bootstrap-icons";
 import "animate.css";
 import { useAppSelector } from "redux/app/hooks";
 import { useTranslation } from "react-i18next";
