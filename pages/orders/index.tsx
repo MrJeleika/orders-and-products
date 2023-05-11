@@ -3,7 +3,6 @@ import s from "./Orders.module.scss";
 import { Plus } from "react-bootstrap-icons";
 import { wrapper } from "redux/app/store";
 import { IOrder } from "types/types";
-import { useDispatch } from "react-redux";
 import { setOrders } from "redux/slice/appSlice";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "redux/app/hooks";
@@ -34,7 +33,7 @@ const Orders = () => {
         <div className={s.add}>
           <Plus color="white" />
         </div>
-        <SectionTitle items={["Приходы", "25"]} />
+        <SectionTitle items={["orders", "25"]} />
       </div>
       <div className={s.body}>
         <div

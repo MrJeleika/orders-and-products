@@ -33,7 +33,7 @@ const Products = () => {
     <div>
       <div className={s.title}>
         <div>
-          <SectionTitle items={["Продукты", "25"]} />
+          <SectionTitle items={["products", "25"]} />
         </div>
         <div className={s.filter}>
           <span className="text-secondary">{t("type")}</span>

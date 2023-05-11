@@ -1,7 +1,5 @@
-import { IOrder } from "types/types";
 import s from "./FullProducts.module.scss";
 import { FullProduct } from "./FullProduct/FullProduct";
-import { useState } from "react";
 import Badge from "react-bootstrap/Badge";
 import { Badge3d, Plus, X } from "react-bootstrap-icons";
 import "animate.css";

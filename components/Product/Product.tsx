@@ -5,6 +5,7 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import "moment/locale/en-gb";
 import { CustomModal } from "components/Modal/Modal";
+import { useTranslation } from "react-i18next";
 
 export interface Props {
   product: IProduct;
@@ -19,6 +20,7 @@ interface IDate {
 export const Product = ({ product }: Props) => {
   const [date, setDate] = useState<IDate>({ current: "", to: "", from: "" });
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setDate({
@@ -40,16 +42,16 @@ export const Product = ({ product }: Props) => {
         </div>
         <div className={s.guarantee}>
           <div className="d-flex">
-            <span className="text-secondary">с</span>
+            <span className="text-secondary">{t("from")}</span>
             <h1 className="text-primary">{date.from}</h1>
           </div>
           <div className="d-flex">
-            <span className="text-secondary">по</span>
+            <span className="text-secondary">{t("to")}</span>
             <h1 className="text-primary">{date.to}</h1>
           </div>
         </div>
         <div className={s.isNew}>
-          <h1 className="text-primary">{product.isNew ? "Новый" : "Б / У"}</h1>
+          <h1 className="text-primary">{product.isNew ? t("net") : t("used")}</h1>
         </div>
         <div className={s.price}>
           {product.price.map((price, i) => (

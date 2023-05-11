@@ -3,6 +3,7 @@ import s from "./Order.module.scss";
 import { ListUl } from "react-bootstrap-icons";
 import { formatWordCount } from "utils";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   order: IOrder;
@@ -11,6 +12,8 @@ interface Props {
 }
 
 export const Order = ({ order, setOrder, isOrder }: Props) => {
+  const { t } = useTranslation();
+
   return (
     <div className="product-item" onClick={() => setOrder(order.id)}>
       <div className={s.wrapper}>
@@ -25,7 +28,7 @@ export const Order = ({ order, setOrder, isOrder }: Props) => {
         <div className={s.count}>
           <h1 className="text-primary">{order.products.length}</h1>
           <h3 className="text-secondary">
-            {formatWordCount(order.products.length, ["Продукт", "Продукта", "Продуктов"])}
+            {t("product", { count: order.products.length, interpolation: { escapeValue: true } })}
           </h3>
         </div>
         <div className={s.date}>

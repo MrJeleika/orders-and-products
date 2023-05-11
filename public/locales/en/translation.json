@@ -9,5 +9,12 @@
   "are_delete": "Are you sure you want to delete this order?",
   "delete": "delete",
   "cancel": "cancel",
-  "add_product": "Add product"
+  "add_product": "Add product",
+  "from": "from",
+  "to": "to",
+  "new": "New",
+  "used": "used",
+  "product": "Product",
+  "product_plural": "Products",
+  "product_plural_2": "Products"
 }
