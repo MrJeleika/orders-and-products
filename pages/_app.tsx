@@ -6,6 +6,9 @@ import { Layout } from "components/Layout";
 import { useRouter } from "next/router";
 import { Provider } from "react-redux";
 import { CacheProvider } from "@emotion/react";
+import i18n from "../utils/i18n";
+import { I18nextProvider } from "react-i18next";
+import { Suspense } from "react";
 
 function App({ Component, ...rest }: AppProps) {
   const { store, props } = wrapper.useWrappedStore(rest);
@@ -15,11 +18,15 @@ function App({ Component, ...rest }: AppProps) {
   if (router.pathname === "/_error") return <Component {...pageProps} />;
   return (
     <Provider store={store}>
-      <CacheProvider value={emotionCache}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </CacheProvider>
+      <I18nextProvider i18n={i18n}>
+        <Suspense fallback="loading...">
+          <CacheProvider value={emotionCache}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </CacheProvider>
+        </Suspense>
+      </I18nextProvider>
     </Provider>
   );
 }

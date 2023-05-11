@@ -5,9 +5,12 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Badge from "react-bootstrap/Badge";
 import { GearFill } from "react-bootstrap-icons";
+import { useTranslation } from "react-i18next";
 
 export const NavigationMenu = () => {
   const router = useRouter();
+  const { t } = useTranslation();
+
   return (
     <Stack direction="vertical" className={s.menu}>
       <div className={s.ava}>
@@ -26,7 +29,7 @@ export const NavigationMenu = () => {
       <ul className={s.nav}>
         <li>
           <Link href={"/orders"} className={router.pathname == "/orders" ? s.active : ""}>
-            Приход
+            {t("products")}
           </Link>
         </li>
         <li>
