@@ -4,8 +4,8 @@
 
 # Description
 System for control orders and products in shop or in stock. Have useful UI to manage your products and orders.
-You can simply delete products you don't need anymore
-
+You can simply delete products you don't need anymore. Also you can filter products by `type` and `specification`. 
+ 
 
 # Project setup
 
