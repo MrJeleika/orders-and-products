@@ -9,8 +9,8 @@ import { useTranslation } from "react-i18next";
 
 export const NavigationMenu = () => {
   const router = useRouter();
-  const { t } = useTranslation();
-
+  const { t, i18n } = useTranslation();
+  i18n.changeLanguage("en");
   return (
     <Stack direction="vertical" className={s.menu}>
       <div className={s.ava}>
