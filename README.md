@@ -16,6 +16,7 @@ System for control orders and products in shop or in stock
 ```
 $ git clone https://github.com/MrJeleika/web-app-nest.git
 ```
+### Instal dependencies
 yarn
 ```
 $ yarn
@@ -28,6 +29,7 @@ Create `.env.local` file with following variables:
 ```
 API_HOST=Your api host
 ```
+### Start development
 yarn
 ```
 $ yarn dev
