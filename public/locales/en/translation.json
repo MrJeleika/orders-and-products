@@ -1,3 +1,7 @@
 {
-  "products": "Products"
+  "products": "products",
+  "groups": "groups",
+  "users": "users",
+  "settings": "settings",
+  "comings": "comings",
 }

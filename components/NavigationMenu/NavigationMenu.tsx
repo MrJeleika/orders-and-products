@@ -6,11 +6,15 @@ import Image from "next/image";
 import Badge from "react-bootstrap/Badge";
 import { GearFill } from "react-bootstrap-icons";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 export const NavigationMenu = () => {
   const router = useRouter();
   const { t, i18n } = useTranslation();
-  i18n.changeLanguage("en");
+  useEffect(() => {
+    i18n.changeLanguage("en");
+  }, [i18n.language]);
+
   return (
     <Stack direction="vertical" className={s.menu}>
       <div className={s.ava}>
@@ -29,27 +33,27 @@ export const NavigationMenu = () => {
       <ul className={s.nav}>
         <li>
           <Link href={"/orders"} className={router.pathname == "/orders" ? s.active : ""}>
-            {t("products")}
+            {t("orders")}
           </Link>
         </li>
         <li>
           <Link href={"/groups"} className={router.pathname == "/groups" ? s.active : ""}>
-            Группы
+            {t("groups")}
           </Link>
         </li>
         <li>
           <Link href={"/products"} className={router.pathname == "/products" ? s.active : ""}>
-            Продукты
+            {t("products")}
           </Link>
         </li>
         <li>
           <Link href={"/users"} className={router.pathname == "/users" ? s.active : ""}>
-            Пользователи
+            {t("users")}
           </Link>
         </li>
         <li>
           <Link href={"/settings"} className={router.pathname == "/settings" ? s.active : ""}>
-            Настройки
+            {t("settings")}
           </Link>
         </li>
       </ul>
