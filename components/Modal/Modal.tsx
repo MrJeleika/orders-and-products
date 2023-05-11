@@ -7,6 +7,7 @@ import { TrashFill, X } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { deleteOrderProduct, deleteProduct } from "redux/slice/appSlice";
 import { useAppSelector } from "redux/app/hooks";
+import { useTranslation } from "react-i18next";
 
 type Type = "product" | "order";
 
@@ -22,8 +23,7 @@ interface Props {
 
 export const CustomModal = ({ isOpen, setIsOpen, product, type, order }: Props) => {
   const handleClose = () => setIsOpen(false);
-  const { products } = useAppSelector((state) => state.app);
-
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const deleteItem = () => {
@@ -36,7 +36,7 @@ export const CustomModal = ({ isOpen, setIsOpen, product, type, order }: Props) 
   return (
     <Modal show={isOpen} onHide={handleClose} className={s.modal} size="lg">
       <Modal.Header className={s.header}>
-        <Modal.Title className={s.title}>Вы уверены что хотите удалить этот приход?</Modal.Title>
+        <Modal.Title className={s.title}>{t("are_delete")}</Modal.Title>
         <Badge onClick={handleClose} bg="light" className={s.badge}>
           <X fill="gray" width={20} />
         </Badge>
@@ -52,11 +52,11 @@ export const CustomModal = ({ isOpen, setIsOpen, product, type, order }: Props) 
       </Modal.Body>
       <Modal.Footer className={s.footer}>
         <Button variant="error" className={`${s.btn} ${s.btnSecondary}`} onClick={handleClose}>
-          отменить
+          {t("cancel")}
         </Button>
         <Button variant="error" className={`${s.btn} ${s.btnPrimary}`} onClick={() => deleteItem()}>
           <TrashFill color="rgb(255, 90, 90)" />
-          удалить
+          {t("delete")}
         </Button>
       </Modal.Footer>
     </Modal>

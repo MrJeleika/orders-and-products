@@ -6,7 +6,7 @@ const Error = () => {
   const router = useRouter();
   useEffect(() => {
     setTimeout(() => {
-      router.push("/");
+      router.push("/orders");
     }, 3000);
   }, [router]);
 

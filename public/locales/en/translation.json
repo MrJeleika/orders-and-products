@@ -3,5 +3,11 @@
   "groups": "groups",
   "users": "users",
   "settings": "settings",
-  "comings": "comings",
+  "orders": "comings",
+  "type": "Type",
+  "specification": "Specification",
+  "are_delete": "Are you sure you want to delete this order?",
+  "delete": "delete",
+  "cancel": "cancel",
+  "add_product": "Add product"
 }

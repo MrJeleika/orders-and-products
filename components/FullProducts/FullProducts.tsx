@@ -6,6 +6,7 @@ import Badge from "react-bootstrap/Badge";
 import { Badge3d, Plus, X } from "react-bootstrap-icons";
 import "animate.css";
 import { useAppSelector } from "redux/app/hooks";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   orderId: number;
@@ -15,6 +16,8 @@ interface Props {
 export const FullProducts = ({ orderId, setOrder }: Props) => {
   const { orders } = useAppSelector((state) => state.app);
   const order = orders.find((order) => order.id === orderId);
+
+  const { t } = useTranslation();
 
   return (
     <>
@@ -31,7 +34,7 @@ export const FullProducts = ({ orderId, setOrder }: Props) => {
               <div>
                 <Plus color="white" />
               </div>
-              <h1>Добавить продукт</h1>
+              <h1>{t("add_product")}</h1>
             </div>
 
             <div className={s.body}>

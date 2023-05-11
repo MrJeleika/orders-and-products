@@ -10,6 +10,7 @@ import s from "./index.module.scss";
 import { wrapper } from "redux/app/store";
 import { useDispatch } from "react-redux";
 import "animate.css";
+import { useTranslation } from "react-i18next";
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
   // Fetch data from external API
@@ -24,8 +25,7 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
 
 const Products = () => {
   const { filter, products } = useAppSelector((state) => state.app);
-  // const data = use(getProducts());
-  const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const { type, specification } = filter;
 
@@ -36,11 +36,11 @@ const Products = () => {
           <SectionTitle items={["Продукты", "25"]} />
         </div>
         <div className={s.filter}>
-          <span className="text-secondary">Тип:</span>
+          <span className="text-secondary">{t("type")}</span>
           <CustomDropdown filterType="type" />
         </div>
         <div className={s.filter}>
-          <span className="text-secondary">Спецификация:</span>
+          <span className="text-secondary">{t("specification")}</span>
           <CustomDropdown filterType="specification" />
         </div>
       </div>
