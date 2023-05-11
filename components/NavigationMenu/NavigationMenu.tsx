@@ -10,10 +10,7 @@ import { useEffect } from "react";
 
 export const NavigationMenu = () => {
   const router = useRouter();
-  const { t, i18n } = useTranslation();
-  useEffect(() => {
-    i18n.changeLanguage("ru");
-  }, [i18n.language]);
+  const { t } = useTranslation();
 
   return (
     <Stack direction="vertical" className={s.menu}>
