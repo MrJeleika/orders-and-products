@@ -3,7 +3,8 @@
 <h2 align="center"><a href="https://dzencodeweb.herokuapp.com/orders">Live Version</a></h2>
 
 # Description
-System for control orders and products in shop or in stock
+System for control orders and products in shop or in stock. Have useful UI to manage your products and orders.
+You can simply delete products you don't need anymore
 
 
 # Project setup
