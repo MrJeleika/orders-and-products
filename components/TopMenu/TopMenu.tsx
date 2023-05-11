@@ -23,14 +23,16 @@ export const TopMenu = () => {
         </div>
         <h1 className={s.menu__title}>Inventory</h1>
       </div>
-      <div>
+      <div className={s.info}>
         <MenuClock />
-        <h1 className="text-primary" onClick={() => setLang("en")}>
-          EN
-        </h1>
-        <h1 className="text-primary" onClick={() => setLang("ru")}>
-          RU
-        </h1>
+        <div className={s.lang}>
+          <h1 className="text-primary" onClick={() => setLang("en")}>
+            EN
+          </h1>
+          <h1 className="text-primary" onClick={() => setLang("ru")}>
+            RU
+          </h1>
+        </div>
       </div>
       {/* <SessionCounter /> */}
     </nav>

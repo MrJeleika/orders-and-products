@@ -18,6 +18,15 @@
   }
 }
 
-.day{
-  font-weight: bold;
+.lang{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  & > h1{
+    cursor: pointer;
+  }
+}
+
+.info{
+  display: flex;
 }
