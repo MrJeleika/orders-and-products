@@ -1,10 +1,5 @@
 <h1 align="center">Orders dn Products</h1>
 
-# Technologies
-<p>
-  <strong>Backend:</strong> Nest, Prisma ORM, MYSQL.<br/>
-  <strong>Frontend:</strong> React, Redux Toolkit, Typescript, MUI, React-hook-form
-</p>
 <h2 align="center"><a href="https://dzencodeweb.herokuapp.com/orders">Live Version</a></h2>
 
 # Description
