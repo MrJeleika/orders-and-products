@@ -15,13 +15,6 @@ function App({ Component, ...rest }: AppProps) {
   const { emotionCache, pageProps } = props;
   const router = useRouter();
 
-  const { t, i18n } = useTranslation();
-  console.log(i18n.language);
-
-  useEffect(() => {
-    i18n.changeLanguage("en");
-  }, [i18n.language]);
-
   if (router.pathname === "/_error") return <Component {...pageProps} />;
   return (
     <Provider store={store}>
