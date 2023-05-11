@@ -10,7 +10,7 @@ You can simply delete products you don't need anymore. Also you can filter produ
 # Project setup
 
 ```
-$ git clone https://github.com/MrJeleika/web-app-nest.git
+$ git clone https://github.com/MrJeleika/orders-and-products.git
 ```
 ### Install dependencies
 yarn
