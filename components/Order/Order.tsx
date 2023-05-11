@@ -28,7 +28,7 @@ export const Order = ({ order, setOrder, isOrder }: Props) => {
         <div className={s.count}>
           <h1 className="text-primary">{order.products.length}</h1>
           <h3 className="text-secondary">
-            {t("product", { count: order.products.length, interpolation: { escapeValue: true } })}
+            {t("product", { count: order.products.length, interpolation: { escapeValue: false } })}
           </h3>
         </div>
         <div className={s.date}>
